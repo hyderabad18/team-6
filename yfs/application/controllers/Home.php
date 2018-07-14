@@ -2,10 +2,23 @@
 
 class Home extends CI_Controller
 {
-    var $site_name;
-	var $site_config = array();
-	var $data = array();
+    public function login()
+    {
 
+<<<<<<< HEAD
+    }
+    public function register()
+    {
+
+    }
+    public function index()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('users/register');
+        $this->load->view('templates/footer');
+
+    }
+=======
     function __construct() {
 		// Call the Model constructor
 		parent::__construct();
@@ -198,6 +211,7 @@ class Home extends CI_Controller
             );
             $this->mail_helper->sendMail($mail_data);
         }// user_registered_send_mail
+>>>>>>> 8da0e3feda5926876159b52977d460865a851217
 }
 
 
