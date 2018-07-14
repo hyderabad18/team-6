@@ -62,9 +62,7 @@
   <a href="#">Enrollment</a>
   <a href="#">Profile</a>
   <a href="#">History</a>
-  
 </div>
-
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
      
