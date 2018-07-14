@@ -1,10 +1,12 @@
 <?php
 
-class Home extends CI_Controller
+class User extends CI_Controller
 {
-    public class index()
+    public function index()
     {
-        $this->load->view();
+        $this->load->view('templates/header');
+        $this->load->view('users/login');
+        $this->load->view('templates/footer');
     }
 }
 ?>
