@@ -74,30 +74,39 @@ class volunteer_model extends CI_Model
     }  // function to check whether the mobile number already exists 
 
 
+    public function getevents()
+    {
+        $query=$this->db->query("select event_name from event where start_date>'".date('Y-m-d')."'");
+        // print_r($query->result_array());
+        return $query->result_array();
+    }
+
+
     public function update_data()
     {
         $pref=$this->input->post('preferences');
         $lat=$this->input->post('latitude');
         $long=$this->input->post('longitude');
-        $email=$this->session->userdata('email');
+        $email=$this->session->userdata('first_name');
         $k='';
         foreach($pref as $m)
         {
             $k=$k.'|'.$m;
 
         }
+        print_r($this->session->userdata());
         $data=array('preferences'=>$k,'loc_lat'=>$lat,'loc_long'=>$long);
-
+        $this->db->set($data);
         $this->db->where('email',$email);
         if($this->db->update('volunteer',$data)==FALSE)
         {
-            //  echo "fail";
-             redirect('volunteer');
+              echo "fail";
+            //  redirect('volunteer');
         }
         else
         {
-            redirect('volunteer');
-            // echo "success";
+            //redirect('volunteer');
+             echo "success";
         }
     }
 }
