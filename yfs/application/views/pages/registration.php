@@ -168,6 +168,12 @@
 <script src="<?php echo base_url();?>assets/js/intlTelInput.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 <script>
+ var cw = $('#mapCanvas').width();
+    if (cw >= 300 )
+    {
+        cw = cw - (cw / 2)
+    }
+    $('#mapCanvas').css({'height': cw + 'px'});
 $(document).ready(function(){
 	$('.registerForm').bootstrapValidator();
 });
