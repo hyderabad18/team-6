@@ -31,7 +31,7 @@
 
         .sidenav .closebtn {
             position: absolute;
-            top: 0;
+            top: 10;
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
@@ -45,7 +45,7 @@
 
 <script>
         function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.width = "15%";
         }
 
         function closeNav() {
@@ -59,13 +59,12 @@
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Enrollment</a>
+  <a href="volunteer/updateprofile">Update Preferences</a>
   <a href="#">Profile</a>
   <a href="#">History</a>
 </div>
 <br>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-
+<span style="font-size:30px;cursor:pointer;position:absolute" onclick="openNav()">&#9776;</span>
 
 
      
