@@ -7,4 +7,4 @@
 |
 |
 */
-$config['site_name'] = 'Blood In Time';
+$config['site_name'] = 'Youth4Seva';
