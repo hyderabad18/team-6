@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $title; ?> - MK </title>
+    <title>YOUTH4SEVA</title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.css" media='screen,print'>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css" >
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/flaticon.css" >
@@ -50,7 +50,7 @@ function IconTransform(x) {
 <body> 
    <div id="wrap">
         <div class="navbar navbar-default navbar-static-top" role="navigation">
-            <div class="container">
+            <div class="con tainer">
                 <div class="navbar-header">
                 <!--   <a class="navbar-brand" href="https://www.facebook.com/sadhumanishkumar" target="_blank">MKS </a> -->
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

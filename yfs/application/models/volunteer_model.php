@@ -11,7 +11,7 @@ class volunteer_model extends CI_Model
     }
 
 
-    function register_user()
+    function register_user($pwd)
     {
         $userdata = array(
             'created_on' => date('Y-m-d H:i:s'),

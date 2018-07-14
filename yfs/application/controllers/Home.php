@@ -2,23 +2,8 @@
 
 class Home extends CI_Controller
 {
-    public function login()
-    {
-
-<<<<<<< HEAD
-    }
-    public function register()
-    {
-
-    }
-    public function index()
-    {
-        $this->load->view('templates/header');
-        $this->load->view('users/register');
-        $this->load->view('templates/footer');
-
-    }
-=======
+    
+    
     function __construct() {
 		// Call the Model constructor
 		parent::__construct();
@@ -43,16 +28,10 @@ class Home extends CI_Controller
         }// login
         
         public function index() {
-<<<<<<< HEAD
             $this->login_user();
             $this->page_data['title'] = "Home|" . $this->site_name;
             
             $this->load->view('users/login');
-=======
-            $this->load->view('templates/header');
-            $this->load->view('users/login');
-            $this->load->view('templates/footer');
->>>>>>> 0858d2e2b6dc8faa55a8f721f39a5d4f9a462326
         }
     
 
@@ -211,7 +190,6 @@ class Home extends CI_Controller
             );
             $this->mail_helper->sendMail($mail_data);
         }// user_registered_send_mail
->>>>>>> 8da0e3feda5926876159b52977d460865a851217
 }
 
 

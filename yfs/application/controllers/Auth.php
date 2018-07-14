@@ -21,7 +21,8 @@ class Auth extends CI_controller
 
     }
 
-    public function index(){
+	public function index()
+	{
         $this->login_user();
 		$this->page_data['title'] = "Home|" . $this->site_name;
 		$this->load->view('pages/login', $this->page_data);
@@ -65,7 +66,8 @@ class Auth extends CI_controller
             //$this->form_validation->set_rules('', 'Address', 'trim|required|xss_clean|valid_lat');
            // $this->form_validation->set_rules('longitude', 'Address', 'trim|required|xss_clean|valid_long');
             //if form validation is true
-            if ($this->form_validation->run()){
+			if ($this->form_validation->run())
+			{
                // echo 'form validated';
                 // adding user in database
                 if($this->volunteer_model->register_user($_POST['password'])){
@@ -100,10 +102,14 @@ class Auth extends CI_controller
 	}// register_Phone_check
 
         public function login_user() {
-            if (isset($_POST['submit_login'])) {
+			if (isset($_POST['submit_login'])) 
+			{
+				// echo "go this";
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|callback_login_credentials_check');
-            if ($this->form_validation->run()) {
+			if ($this->form_validation->run()) 
+			{
+				echo "correct";
                 $user_data = $this->volunteer_model->get_user_data($this->input->post('email'));
                 $session_data = array(
 					'user_name' => $user_data['display_name'],
@@ -114,9 +120,10 @@ class Auth extends CI_controller
 					'lastName' => $user_data['LastName'],
 					'email' => $user_data['EmailID'],
                     'is_logged_in' => true
-                );
+				);
+				
                 $this->session->set_userdata($session_data);
-                redirect('home/dummy');
+                redirect('volunteer');
                 }
                 $this->page_data['error'] = true;
             }  
@@ -142,7 +149,7 @@ class Auth extends CI_controller
 
     	public function logout() {
 		$this->session->sess_destroy();
-		redirect('home');
+		redirect('auth');
 	}// logout
     
     function user_registered_send_mail() {

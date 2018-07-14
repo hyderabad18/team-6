@@ -9,13 +9,13 @@ class Volunteer extends CI_Controller
     {
         $this->load->view('templates/header');
         $this->load->view('volunteers/dashboard');
-        $this->load->view('templates/footer');
+        // $this->load->view('templates/footer');
     }
     public function updateprofile()
     {
         $this->load->view('templates/header');
         $this->load->view('volunteers/updatedetails.php');
-        $this->load->view('templates/footer');
+        // $this->load->view('templates/footer');
     }
     public function updatedata()
     {
