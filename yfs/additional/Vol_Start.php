@@ -47,13 +47,15 @@ body {
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="http://localhost/past_events.php"> Events Participated</a>
-   <a href="http://localhost/Checkin.php"> Volunteer now</a>
+   
   <a href="http://localhost/Checkin.php"> Check In</a>  
+
+  <a href="http://localhost/volunteer_dashboard.php"> Contribution</a>  
 </div>
 
 <h2 align="center">Volunteer</h2>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
 <script>
 function openNav() {
@@ -63,6 +65,39 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 </script>
-     
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2> Event Registration</h2>
+	<div class="form-group">
+      <label for="name">Name:</label>
+      <input type="password" class="form-control" id="event_name" placeholder="Enter Name" name="name">
+    </div>
+	
+	
+	 <div class="form-group">
+		<label class="location">Location:</label>
+		<input type="text" class="form-control" id="Event_location" placeholder="Enter Location" name="location" >
+	</div>
+
+ 
+  <button type="submit" class="btn btn-primary pull-right">Register</button>
+  <button type="reset" class="btn btn-danger pull-right">Reset</button>
+   
+  </form>
+</div>
+
+</body>
+</html>
 </body>
 </html> 
