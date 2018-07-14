@@ -1,20 +1,48 @@
 <?php
 
+<<<<<<< HEAD
 class volunteer_model extends CI_Model
+=======
+class Volunteer_model extends CI_Model
+>>>>>>> 8da0e3feda5926876159b52977d460865a851217
 {
 
     function __construct()
     {
         // Call the Model constructor
         parent::__construct();
+
     }
 
 
     function register_user()
     {
+<<<<<<< HEAD
         print_r($this->input->post());
         echo "hello";           
     }
+=======
+        $userdata = array(
+            'created_on' => date('Y-m-d H:i:s'),
+            'email' => $this->input->post('email'),
+            'first_name' => $this->input->post('firstname'),
+            'last_name' => $this->input->post('lastname'),
+			'display_name' => $this->input->post('firstname').' '.$this->input->post('lastname'),
+			'gender' => $this->input->post('gender'),
+            'password' => md5($pwd),
+            'phone_no' => $this->input->post('phone'),
+            //'UserStatusFlag' => 1,
+			
+            //'Zipcode' => $this->input->post('zipcode'),
+            'loc_lat' => '10.100',
+            'loc_long' => '10.10000',
+        );
+        $this->db->insert('volunteer', $userdata);
+		$insert_id = $this->db->insert_id();
+		//$this->db->query("INSERT INTO sll_users_log SELECT null, su.* FROM sll_users su WHERE su.UserID='$insert_id'");
+        return ($this->db->affected_rows() != 1) ? false : true;
+    } // function to insert volunteer data into voulnteer table
+>>>>>>> 8da0e3feda5926876159b52977d460865a851217
     
 
 
@@ -31,7 +59,7 @@ class volunteer_model extends CI_Model
 
 
     public function get_user_data($EmailID){
-        $this->db->where('EmailID', "$EmailID");
+        $this->db->where('email', "$EmailID");
         $query = $this->db->get('volunteer');
         return $query->row_array();
     }// function to get details of the user
@@ -39,7 +67,7 @@ class volunteer_model extends CI_Model
 
     public function check_email_exists($EmailID)
     {
-        $this->db->where('EmailID', "$EmailID");
+        $this->db->where('email', "$EmailID");
         $query = $this->db->get('volunteer');
         if ($query->num_rows() == 1)
             return true;
@@ -57,6 +85,7 @@ class volunteer_model extends CI_Model
     }  // function to check whether the mobile number already exists 
 
 
+<<<<<<< HEAD
     public updatedata($data)
     {
 
@@ -75,5 +104,8 @@ class volunteer_model extends CI_Model
 
 
     }
+=======
+    
+>>>>>>> 8da0e3feda5926876159b52977d460865a851217
 
 }
