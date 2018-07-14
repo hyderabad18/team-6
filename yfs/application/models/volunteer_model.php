@@ -74,20 +74,7 @@ class volunteer_model extends CI_Model
     }  // function to check whether the mobile number already exists 
 
 
-    public updatedata($data)
-    {
-
-        $this->db->set();
-        $user_email=$this->session->userdata('email');
-        $this->db->where('email',$user_email);
-        if($this->db->update('volunteer',$data)==FALSE)
-        {
-            //update failed 
-        }
-        else
-        {
-
-        }
+    
 
 
 
