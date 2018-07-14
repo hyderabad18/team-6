@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
 class volunteer_model extends CI_Model
-=======
-class Volunteer_model extends CI_Model
->>>>>>> 8da0e3feda5926876159b52977d460865a851217
 {
 
     function __construct()
@@ -17,11 +13,6 @@ class Volunteer_model extends CI_Model
 
     function register_user()
     {
-<<<<<<< HEAD
-        print_r($this->input->post());
-        echo "hello";           
-    }
-=======
         $userdata = array(
             'created_on' => date('Y-m-d H:i:s'),
             'email' => $this->input->post('email'),
@@ -42,8 +33,6 @@ class Volunteer_model extends CI_Model
 		//$this->db->query("INSERT INTO sll_users_log SELECT null, su.* FROM sll_users su WHERE su.UserID='$insert_id'");
         return ($this->db->affected_rows() != 1) ? false : true;
     } // function to insert volunteer data into voulnteer table
->>>>>>> 8da0e3feda5926876159b52977d460865a851217
-    
 
 
     function check_credentials($EmailID, $password)
@@ -85,7 +74,6 @@ class Volunteer_model extends CI_Model
     }  // function to check whether the mobile number already exists 
 
 
-<<<<<<< HEAD
     public updatedata($data)
     {
 
@@ -104,8 +92,5 @@ class Volunteer_model extends CI_Model
 
 
     }
-=======
-    
->>>>>>> 8da0e3feda5926876159b52977d460865a851217
 
 }
