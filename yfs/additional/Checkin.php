@@ -55,7 +55,7 @@ button:hover {
     border-top-width: 0;
     border-bottom: 4px solid #fff;
   }
-  
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -141,36 +141,14 @@ hr {
   <form class="modal-content" action="">
     <div class="container">
       <h1>Event Check in</h1>
-      
-      <hr>
-       <label class="label" >Name</label>
-  
-  		<div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
-
-  <input type="text" type="text" name="location" >
-  <br>  <br>
-   Type:
+      Name:
   <input type="text" type="text" name="type" >
   <br>  <br>
-  Duration:<br> <br> 
-  Start Date:
-  <input type="text" class="textboxclass" id="datepicker" name="startdate" >
-  <br>  <br>
-  End Date:
-  <input type="text" class="textboxclass" id="datepicker1" name="enddate" >
+  Date:
+  <input type="text" class="textboxclass" id="datepicker1" name="date" >
   <br>  <br>
   
-  <input type="submit" class="button" value="Participate">
+  <input type="submit" class="button" value="Check in now">
       </div>
     </div>
   </form>
