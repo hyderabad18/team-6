@@ -30,10 +30,16 @@ class Home extends CI_Controller
         }// login
         
         public function index() {
+<<<<<<< HEAD
             $this->login_user();
             $this->page_data['title'] = "Home|" . $this->site_name;
             
             $this->load->view('users/login');
+=======
+            $this->load->view('templates/header');
+            $this->load->view('users/login');
+            $this->load->view('templates/footer');
+>>>>>>> 0858d2e2b6dc8faa55a8f721f39a5d4f9a462326
         }
     
 

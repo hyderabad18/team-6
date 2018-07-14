@@ -75,13 +75,10 @@ class Volunteer_model extends CI_Model
     }  // function to check whether the mobile number already exists 
 
 
-    /**
-     * following functions added By Manish Kumar Sadhu
-     *  1. check_phone_exists()
-     *  2. register_user()
-     *  3. check_credentials()
-     *  4. get_user_data()
-     *  5. check_email_exists()
-     * 
-     */
+    public updatedata($data)
+    {
+        $this->db->update
+
+    }
+
 }

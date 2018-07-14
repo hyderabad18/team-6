@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2018 at 01:37 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Jul 14, 2018 at 01:03 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -52,18 +52,6 @@ INSERT INTO `event` (`Event_ID`, `Event_Name`, `Event_Desc`, `Type`, `Vol_Count`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temp_enrollment`
---
-
-CREATE TABLE `temp_enrollment` (
-  `User_ID` varchar(20) NOT NULL,
-  `Event_ID` int(10) NOT NULL,
-  `Time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `volunteer`
 --
 
@@ -85,8 +73,8 @@ CREATE TABLE `volunteer` (
 INSERT INTO `volunteer` (`Volunteer_Name`, `Phone_no`, `Email`, `User_ID`, `Loc_Name`, `Loc_Lat`, `Loc_Long`, `Password`) VALUES
 ('0', 88888888, '0', '0', 'Jubileehills', 'sajdas', 'awws', 'amulya'),
 ('0', 55548888, '0', '0', 'Banjarahills', 'sajdas', 'awws', 'sahithi'),
-('amulya', 88888888, 'devi.amulya72@gmail.com', 'amulya', '', '', '', 'amulya'),
-('siddharth', 764647844, 'jnklgll@gmail.com', 'siddharth', '', '', '', 'siddharth');
+('sahi', 987654321, 'ahsv@gmail.com', 'sahi', 'kuatplly', '47', '53', 'sahi'),
+('sahi', 987654321, 'ahsv@gmail.com', 'sahi', 'kuatplly', '47', '53', 'sahi');
 
 -- --------------------------------------------------------
 
@@ -107,8 +95,8 @@ CREATE TABLE `v_checkin` (
 --
 
 INSERT INTO `v_checkin` (`User_ID`, `Event_ID`, `Date`, `Check_IN`, `Check_out`) VALUES
-('amulya', 1, '2018-07-09', '2018-07-08 15:00:13.000000', '2018-07-30 01:00:00.000000'),
-('amulya', 1, '2018-07-09', '2018-07-08 15:00:13.000000', '2018-07-30 01:00:00.000000');
+('amulya', 1, '2018-07-09', '2018-07-08 20:30:13.000000', '2018-07-30 06:30:00.000000'),
+('amulya', 1, '2018-07-09', '2018-07-08 20:30:13.000000', '2018-07-30 06:30:00.000000');
 
 --
 -- Indexes for dumped tables
@@ -119,13 +107,6 @@ INSERT INTO `v_checkin` (`User_ID`, `Event_ID`, `Date`, `Check_IN`, `Check_out`)
 --
 ALTER TABLE `event`
   ADD PRIMARY KEY (`Event_ID`);
-
---
--- Indexes for table `temp_enrollment`
---
-ALTER TABLE `temp_enrollment`
-  ADD UNIQUE KEY `user_ID` (`User_ID`),
-  ADD UNIQUE KEY `event_ID` (`Event_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
