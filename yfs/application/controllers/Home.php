@@ -25,10 +25,9 @@ class Home extends CI_Controller
 
 
         public function index() {
-            $this->login_user();
-            $this->page_data['title'] = "Home|" . $this->site_name;
-            
-            $this->load->view('home/home', $this->page_data);
+            $this->load->view('templates/header');
+            $this->load->view('users/login');
+            $this->load->view('templates/footer');
         }
     
 
