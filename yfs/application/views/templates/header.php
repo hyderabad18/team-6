@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/essentials.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/datatables.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet" type="text/css"/>
-    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Ws7EvlZS2PRlNFZfFrqOnlWM_XHYO1o&callback=initMap"
-        type="text/javascript"></script>
+    
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.chained.min.js"></script>
@@ -82,3 +81,5 @@ function IconTransform(x) {
             </div>
         </div>
     <div class="container">
+    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Ws7EvlZS2PRlNFZfFrqOnlWM_XHYO1o&callback=initMap"
+        type="text/javascript"></script>

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2018 at 01:03 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Jul 14, 2018 at 06:03 PM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,25 +27,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `event` (
-  `Event_ID` int(10) NOT NULL,
-  `Event_Name` varchar(20) NOT NULL,
-  `Event_Desc` varchar(30) NOT NULL,
-  `Type` varchar(20) NOT NULL,
-  `Vol_Count` int(10) NOT NULL,
-  `Benefit` int(10) NOT NULL,
-  `Loc_Name` varchar(30) NOT NULL,
-  `Loc_Lat` varchar(30) NOT NULL,
-  `Loc_Long` varchar(30) NOT NULL,
-  `Start_Date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `End_Date` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `event`
---
-
-INSERT INTO `event` (`Event_ID`, `Event_Name`, `Event_Desc`, `Type`, `Vol_Count`, `Benefit`, `Loc_Name`, `Loc_Lat`, `Loc_Long`, `Start_Date`, `End_Date`) VALUES
-(1, 'chiguru', 'event', 'educational', 5, 10, 'jubliehills', '23', '34', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000');
+  `event_id` int(20) NOT NULL,
+  `event_name` varchar(80) NOT NULL,
+  `Event_Description` varchar(1000) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `vol_count` int(20) NOT NULL,
+  `benefit` varchar(100) NOT NULL,
+  `loc_name` varchar(100) NOT NULL,
+  `loc_lat` varchar(50) NOT NULL,
+  `loc_long` varchar(50) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -56,25 +47,27 @@ INSERT INTO `event` (`Event_ID`, `Event_Name`, `Event_Desc`, `Type`, `Vol_Count`
 --
 
 CREATE TABLE `volunteer` (
-  `Volunteer_Name` varchar(20) NOT NULL,
-  `Phone_no` int(10) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `User_ID` varchar(30) NOT NULL,
-  `Loc_Name` varchar(100) NOT NULL,
-  `Loc_Lat` varchar(100) NOT NULL,
-  `Loc_Long` varchar(100) NOT NULL,
-  `Password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `volunteer_id` int(20) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `display_name` varchar(100) NOT NULL,
+  `phone_no` int(100) NOT NULL,
+  `email` int(11) NOT NULL,
+  `loc_lat` varchar(100) NOT NULL,
+  `loc_long` varchar(100) NOT NULL,
+  `gender` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `created_on` date NOT NULL,
+  `role_flag` int(3) NOT NULL COMMENT 'Admin-1, Others-0',
+  `preferences` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `volunteer`
 --
 
-INSERT INTO `volunteer` (`Volunteer_Name`, `Phone_no`, `Email`, `User_ID`, `Loc_Name`, `Loc_Lat`, `Loc_Long`, `Password`) VALUES
-('0', 88888888, '0', '0', 'Jubileehills', 'sajdas', 'awws', 'amulya'),
-('0', 55548888, '0', '0', 'Banjarahills', 'sajdas', 'awws', 'sahithi'),
-('sahi', 987654321, 'ahsv@gmail.com', 'sahi', 'kuatplly', '47', '53', 'sahi'),
-('sahi', 987654321, 'ahsv@gmail.com', 'sahi', 'kuatplly', '47', '53', 'sahi');
+INSERT INTO `volunteer` (`volunteer_id`, `first_name`, `last_name`, `display_name`, `phone_no`, `email`, `loc_lat`, `loc_long`, `gender`, `password`, `created_on`, `role_flag`, `preferences`) VALUES
+(1, 'Manish', 'Sadhu', 'Manish Sadhu', 2147483647, 0, '10.100', '10.10000', 'M', '30e535568de1f9231e7d9df0f4a5a44d', '2018-07-14', 0, '');
 
 -- --------------------------------------------------------
 
@@ -83,20 +76,12 @@ INSERT INTO `volunteer` (`Volunteer_Name`, `Phone_no`, `Email`, `User_ID`, `Loc_
 --
 
 CREATE TABLE `v_checkin` (
-  `User_ID` varchar(30) NOT NULL,
-  `Event_ID` int(10) NOT NULL,
-  `Date` date NOT NULL,
-  `Check_IN` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `Check_out` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `v_checkin`
---
-
-INSERT INTO `v_checkin` (`User_ID`, `Event_ID`, `Date`, `Check_IN`, `Check_out`) VALUES
-('amulya', 1, '2018-07-09', '2018-07-08 20:30:13.000000', '2018-07-30 06:30:00.000000'),
-('amulya', 1, '2018-07-09', '2018-07-08 20:30:13.000000', '2018-07-30 06:30:00.000000');
+  `user_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `checkin` timestamp NOT NULL,
+  `checkout` timestamp NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -106,9 +91,31 @@ INSERT INTO `v_checkin` (`User_ID`, `Event_ID`, `Date`, `Check_IN`, `Check_out`)
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
-  ADD PRIMARY KEY (`Event_ID`);
-COMMIT;
+  ADD PRIMARY KEY (`event_id`);
 
+--
+-- Indexes for table `volunteer`
+--
+ALTER TABLE `volunteer`
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `phone_no` (`phone_no`),
+  ADD UNIQUE KEY `volunteer_id` (`volunteer_id`);
+
+--
+-- Indexes for table `v_checkin`
+--
+ALTER TABLE `v_checkin`
+  ADD PRIMARY KEY (`event_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `volunteer`
+--
+ALTER TABLE `volunteer`
+  MODIFY `volunteer_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

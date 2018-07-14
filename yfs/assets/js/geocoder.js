@@ -125,9 +125,11 @@ function initialize() {
                         center: latLng,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     });
-
+                    var options = {
+                        types: ['(regions)'] // (cities)
+                      };
                     var input = document.getElementById('addresssearch');
-                    var autocomplete = new google.maps.places.Autocomplete(input);
+                    var autocomplete = new google.maps.places.Autocomplete(input,options);
                     autocomplete.bindTo('bounds', map)
 
                     marker = new google.maps.Marker({
