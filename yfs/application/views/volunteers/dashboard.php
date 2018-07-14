@@ -59,14 +59,13 @@
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="http://localhost/createevent.php">Create Event</a>
-  <a href="#">View Event</a>
+  <a href="#">Enrollment</a>
+  <a href="#">Profile</a>
+  <a href="#">History</a>
   
 </div>
 
-<h2 align="center">Admin</h2>
-
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
      
 </body>
