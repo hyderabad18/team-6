@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 
 class Admin extends CI_controller
@@ -165,3 +166,16 @@ class Admin extends CI_controller
      * Mail_to_volunteers_rejected
      */
 }
+=======
+<?php
+
+class Admin extends CI_Controller
+{
+	function index()
+	{
+		$this->load->view("leftnav.php");
+	}
+}
+
+?>
+>>>>>>> de4018f4974a0ba4b47d5aa85faa57545eb511f4

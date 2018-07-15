@@ -1,6 +1,5 @@
 
-
-<form action="updatedata" method="post" class ="col-lg-6 col-lg-offset-3 centered">
+<form action="updateddata" method="post" class ="col-lg-6 col-lg-offset-3 centered">
   <div class="form-group">
     <label for="preferences">Preferences</label>
     <select class="form-control" id="preferences" name="preferences[]" multiple>

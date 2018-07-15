@@ -78,9 +78,70 @@ class volunteer_model extends CI_Model
 		$query = sprintf("select loc_lat, loc_long from volunteer where volunteer_id='$vid' ");
 		$result = $this->db->query($query);
 		return $result->result();
+
+
+    public function getevents()
+    {
+        // print_r("select event_id,event_name,loc_name from event where start_date>'".date('Y-m-d')."' and event_id not in (select event_id from temp_event where volunteer_id=".$this->session->userdata('volunteer_id').');');
+        $query=$this->db->query("select event_id,event_name,loc_name from event where start_date>'".date('Y-m-d')."' and event_id not in (select event_id from temp_event where volunteer_id=".$this->session->userdata('volunteer_id').');');
+        // print_r($query->result_array());
+        return $query->result_array();
+    }
+
+
+    public function update_data()
+    {
+        $pref=$this->input->post('preferences');
+        $lat=$this->input->post('latitude');
+        $long=$this->input->post('longitude');
+        $email=$this->session->userdata('first_name');
+        $k='';
+        foreach($pref as $m)
+        {
+            $k=$k.'|'.$m;
+
+        }
+        print_r($this->session->userdata());
+        $data=array('preferences'=>$k,'loc_lat'=>$lat,'loc_long'=>$long);
+        $this->db->set($data);
+        $this->db->where('email',$email);
+        if($this->db->update('volunteer',$data)==FALSE)
+        {
+              echo "fail";
+            //  redirect('volunteer');
+        }
+        else
+        {
+            //redirect('volunteer');
+             echo "success";
+        }
+    }
+    public function update_temp($event)
+    {
+        // print_r("insert into temp_event(volunteer_id,event_id) values('".$this->session->userdata('email')."',".$event."');");
+        $query=$this->db->query("insert into temp_event(volunteer_id,event_id) values(".$this->session->userdata('volunteer_id').",".$event.");");
+        // print_r($query);
+        // return json_encode($query);
+    }
+
+    public function getCheckIn()
+    {
+        $q="select event_id,event_name,loc_name from event_enrollment natural join event where volunteer_id=".$this->session->userdata('volunteer_id')." and '".date('Y-m-d')."' between start_date and end_date;";
+        $query=$this->db->query($q);
+        return $query->result_array();
     }
     
 
-   
-    
+    public function update_check($event)
+    {
+        $q="insert into v_checkin(volunteer_id,event_id,date,checkin) values(".$this->session->userdata('volunteer_id').",".$event.",'".date('Y-m-d')."','".date('Y-m-d h:i:s')."');";
+        $query=$this->db->query($q);
+    }
+
+
+
+
+
+
+
 }

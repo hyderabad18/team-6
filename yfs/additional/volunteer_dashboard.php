@@ -16,7 +16,17 @@
   <div class="progress">
     <div class="progress-bar" style="width:70%">70%</div>
   </div>
+ <br/><br/>
+  
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title"No. of hours participated</h5>
+    <p class="card-text">50%</p>
+  </div>
 </div>
+</div>
+
 
 </body>
 </html>
