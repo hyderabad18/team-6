@@ -119,10 +119,16 @@ class Auth extends CI_controller
 					'firstName' => $user_data['first_name'],
 					'lastName' => $user_data['last_name'],
 					'email' => $user_data['email'],
+					'role' => $user_data['role_flag'],
+                    'is_logged_in' => true
+                );
+				$this->session->set_userdata($session_data);
+				if($session_data['role']=="1")
+                redirect('Admin');
                     'is_logged_in' => true
 				);
 				
-                $this->session->set_userdata($session_data);
+                $this->session->set_userdata($session_data['role']!=1);
                 redirect('volunteer');
                 }
                 $this->page_data['error'] = true;
@@ -169,4 +175,32 @@ class Auth extends CI_controller
 		$this->mail_helper->sendMail($mail_data);
 	}// user_registered_send_mail
 
+
+	public function sendMessage(){
+		require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
+		//require('Twilio\Rest\Client');
+			$account_sid = 'AC46bd4b8162f3153166421ca36d784630';
+			$auth_token = '48c26a2af73548fed0eb615de82de3a8';
+			// In production, these should be environment variables. E.g.:
+			// $auth_token = $_ENV["TWILIO_ACCOUNT_SID"]
+			// A Twilio number you own with SMS capabilities
+
+
+
+			$twilio_number = "8325013846";
+			$mobile = $this->session->session_data['phone'];
+			$client = new Client($account_sid, $auth_token);
+			$client->messages->create(
+				// Where to send a text message (your cell phone?)
+				'+91.<?php echo $mobile;?>',
+				array(
+					'from' => $twilio_number,
+					'body' => $data
+				)
+			);
+	
+	}
+
+	
+	
 }

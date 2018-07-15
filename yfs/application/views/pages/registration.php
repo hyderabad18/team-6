@@ -11,7 +11,7 @@
 	}
 	</style>
 <section class="container">
-<h2 class="text-center">Create <strong>Account</strong></h2>
+<h2 class="text-center">Create <strong>Volunteer Account</strong></h2>
 <style>
 	.form-control {
     padding-right: 50px;

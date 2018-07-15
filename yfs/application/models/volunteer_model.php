@@ -72,6 +72,12 @@ class volunteer_model extends CI_Model
         else
             return false;
     }  // function to check whether the mobile number already exists 
+    
+    
+    function getUserLocation($vid){
+		$query = sprintf("select loc_lat, loc_long from volunteer where volunteer_id='$vid' ");
+		$result = $this->db->query($query);
+		return $result->result();
 
 
     public function getevents()
@@ -124,6 +130,7 @@ class volunteer_model extends CI_Model
         $query=$this->db->query($q);
         return $query->result_array();
     }
+    
 
     public function update_check($event)
     {
