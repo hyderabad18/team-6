@@ -11,7 +11,7 @@ class volunteer_model extends CI_Model
     }
 
 
-    function register_user()
+    function register_user($pwd)
     {
         $userdata = array(
             'created_on' => date('Y-m-d H:i:s'),
@@ -72,12 +72,15 @@ class volunteer_model extends CI_Model
         else
             return false;
     }  // function to check whether the mobile number already exists 
-
-
+    
+    
+    function getUserLocation($vid){
+		$query = sprintf("select loc_lat, loc_long from volunteer where volunteer_id='$vid' ");
+		$result = $this->db->query($query);
+		return $result->result();
+    }
     
 
-
-
-    }
-
+   
+    
 }

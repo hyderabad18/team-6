@@ -2,7 +2,7 @@
 
 
 
-
+<title>Login page</title>
 <section class="container" >
     <div class="col-md-4 col-md-push-3">
         <?php if ($this->session->userdata('is_logged_in')) { ?>
