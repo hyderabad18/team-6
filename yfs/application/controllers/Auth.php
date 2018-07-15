@@ -110,13 +110,15 @@ class Auth extends CI_controller
 					'volunteer_id' => $user_data['volunteer_id'],
                     'Gender' => $user_data['gender'],
 					'phone' => $user_data['phone_no'],
-					'firstName' => $user_data['FirstName'],
-					'lastName' => $user_data['LastName'],
-					'email' => $user_data['EmailID'],
+					'firstName' => $user_data['first_name'],
+					'lastName' => $user_data['last_name'],
+					'email' => $user_data['email'],
+					'role' => $user_data['role_flag'],
                     'is_logged_in' => true
                 );
-                $this->session->set_userdata($session_data);
-                redirect('home/dummy');
+				$this->session->set_userdata($session_data);
+				if($session_data['role']=="1")
+                redirect('Admin');
                 }
                 $this->page_data['error'] = true;
             }  
@@ -142,7 +144,7 @@ class Auth extends CI_controller
 
     	public function logout() {
 		$this->session->sess_destroy();
-		redirect('home');
+		redirect('auth');
 	}// logout
     
     function user_registered_send_mail() {
@@ -162,4 +164,32 @@ class Auth extends CI_controller
 		$this->mail_helper->sendMail($mail_data);
 	}// user_registered_send_mail
 
+
+	public function sendMessage(){
+		require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
+		//require('Twilio\Rest\Client');
+			$account_sid = 'AC46bd4b8162f3153166421ca36d784630';
+			$auth_token = '48c26a2af73548fed0eb615de82de3a8';
+			// In production, these should be environment variables. E.g.:
+			// $auth_token = $_ENV["TWILIO_ACCOUNT_SID"]
+			// A Twilio number you own with SMS capabilities
+
+
+
+			$twilio_number = "8325013846";
+			$mobile = $this->session->session_data['phone'];
+			$client = new Client($account_sid, $auth_token);
+			$client->messages->create(
+				// Where to send a text message (your cell phone?)
+				'+91.<?php echo $mobile;?>',
+				array(
+					'from' => $twilio_number,
+					'body' => $data
+				)
+			);
+	
+	}
+
+	
+	
 }
