@@ -13,11 +13,11 @@
 
   <div class="form-group">
       <label for="latitude">Latitude</label>
-      <input step="0.01" type="number" class="form-control" name="latitude" id="latitude"/>
+      <input type="text" class="form-control" name="latitude" id="latitude"/>
   </div>
   <div class="form-group">
       <label for="longitude">Longitude</label>
-      <input type="number" step="0.01" class="form-control" name="longitude" id="longitude"/>
+      <input type="text" class="form-control" name="longitude" id="longitude"/>
   </div>
   
   <button type="submit" class="btn btn-default">Submit</button>

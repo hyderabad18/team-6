@@ -8,7 +8,6 @@ class Volunteer extends CI_Controller
     public function index()
     {
         $this->load->model('volunteer_model');
-
         $data['eve']=$this->volunteer_model->getevents();
         $this->load->view('templates/header');
         $this->load->view('volunteers/dashboard',$data);
@@ -45,6 +44,7 @@ class Volunteer extends CI_Controller
         $this->load->model('volunteer_model');
         $this->load->view('templates/header');
         $this->load->view('volunteers/dashboard_checkin',$data);
+        require('sms.php');
     }
     public function update_check($event_temp)
     {

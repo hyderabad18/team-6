@@ -28,7 +28,11 @@ class Admin_model extends CI_Model
     }
 
     public function createEvent($data){
-        $this->db->insert('event',$data);
+        if($this->db->insert('event',$data))
+        echo "successful";
+        else
+        echo "failed";
+
         return ($this->db->affected_rows() != 1) ? false : true;
     }
 

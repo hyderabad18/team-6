@@ -15,7 +15,7 @@
                     <h4>Thank you!</h4>
                     <p>Your email is <b><?=$email?></b></p>
                     <p>Your account was successfully created.</p>
-                    <p><a href="<?php echo base_url(); ?>" class="btn btn-default">Back to Home</a></p>
+                    <p><a href="<?php echo base_url(); ?>auth" class="btn btn-default">Back to Home</a></p>
                 </div>
             </div>
         </div>

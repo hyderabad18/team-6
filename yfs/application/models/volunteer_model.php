@@ -74,15 +74,16 @@ class volunteer_model extends CI_Model
     }  // function to check whether the mobile number already exists 
     
     
-    function getUserLocation($vid){
+    function getUserLocation($vid)
+    {
 		$query = sprintf("select loc_lat, loc_long from volunteer where volunteer_id='$vid' ");
 		$result = $this->db->query($query);
 		return $result->result();
 
-
+    }
     public function getevents()
     {
-        // print_r("select event_id,event_name,loc_name from event where start_date>'".date('Y-m-d')."' and event_id not in (select event_id from temp_event where volunteer_id=".$this->session->userdata('volunteer_id').');');
+        //  print_r("select event_id,event_name,loc_name from event where start_date>'".date('Y-m-d')."' and event_id not in (select event_id from temp_event where volunteer_id=".$this->session->userdata('volunteer_id').');');
         $query=$this->db->query("select event_id,event_name,loc_name from event where start_date>'".date('Y-m-d')."' and event_id not in (select event_id from temp_event where volunteer_id=".$this->session->userdata('volunteer_id').');');
         // print_r($query->result_array());
         return $query->result_array();
@@ -98,11 +99,13 @@ class volunteer_model extends CI_Model
         $k='';
         foreach($pref as $m)
         {
-            $k=$k.'|'.$m;
+            $k=$k.' '.$m;
 
         }
         print_r($this->session->userdata());
         $data=array('preferences'=>$k,'loc_lat'=>$lat,'loc_long'=>$long);
+
+        print_r($data);
         $this->db->set($data);
         $this->db->where('email',$email);
         if($this->db->update('volunteer',$data)==FALSE)
@@ -145,3 +148,4 @@ class volunteer_model extends CI_Model
 
 
 }
+?>

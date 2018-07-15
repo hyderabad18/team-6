@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php 
 
 class Admin extends CI_controller
@@ -8,7 +7,7 @@ class Admin extends CI_controller
 	var $data = array();
     var $id;
 
-    function __construct(){
+    public function __construct(){
         parent::__construct();
 		$this->load->model("admin_model");
         $this->load->helper('url');
@@ -22,7 +21,8 @@ class Admin extends CI_controller
 
     }
 
-    public function index(){
+    public function index()
+    {
         $title ="Admin Dashboard";
         $this->load->view('templates/header',$title);
         $this->load->view('templates/left_nav');
@@ -32,33 +32,44 @@ class Admin extends CI_controller
         
         $this->load->view('pages/admin_dashboard', $page_data);
     }
-    public function createEventPage(){
+    public function createEventPage()
+    {
         $this->load->view('templates/header');
         $this->load->view('templates/left_nav');
         $this->load->view('pages/create_event');
         
     }
-    public function createEvent(){
-        if($this->session->session_data['role']==1){
+    public function createEvent()
+    {
+        // print_r("yo");
+        //  print_r($this->session->userdata());
+        if($this->session->userdata('role')==1)
+        {
             $eventData = array();
             $eventData['event_name']= $this->input->post('event_name');
-            $eventData['Event_Description']= $this->input->post('event_description');
-            $eventData['type']= $this->input->post('event_type');
-            $eventData['vol_count']= $this->input->post('vol_count');
-            $eventData['benefit']= $this->input->post('benefit_count');
-            $eventData['loc_name']= $this->input->post('location_name');
-            $eventData['benefit']= $this->input->post('benefit_count');
-            $eventData['start_date']= $this->input->post('start_date');
-            $eventData['end_date']= $this->input->post('end_date');
-            $this->admin_model->createEvent($eventData);
-            }
-        }
+            $eventData['Event_Description']= $this->input->post('description');
+            $eventData['type']= $this->input->post('type');
+            $eventData['vol_count']= $this->input->post('volcount');
+            $eventData['benefit']= $this->input->post('bno');
+            $eventData['loc_name']= $this->input->post('location');
+            $eventData['start_date']= $this->input->post('startdate');
+            $eventData['end_date']= $this->input->post('enddate');
+            $eventData['loc_lat']='10.00';
+            $eventData['loc_long']='10.00';
+            // print_r($eventData);
 
+            $this->admin_model->createEvent($eventData);
+            require('sms.php');
+            redirect('admin');
+            }
     }
 
 
-    public function updateEvent($event_id){
-        if($this->session->session_data['role']==1){
+
+    public function updateEvent($event_id)
+    {
+        if($this->session->session_data['role']==1)
+        {
             $update_event = array();
             $update_event['event_name']= $this->input->post('event_name');
             $update_event['Event_Description']= $this->input->post('event_description');
@@ -69,22 +80,26 @@ class Admin extends CI_controller
             $update_event['benefit']= $this->input->post('benefit_count');
             $update_event['start_date']= $this->input->post('start_date');
             $update_event['end_date']= $this->input->post('end_date');
-            if($this->admin_model->updateEvent($update_event)== 'true'){
+            if($this->admin_model->updateEvent($update_event)== 'true')
+            {
                 $this->sendUpdateEventDetailsMail();
             }
-
+        }
     }
 
-    public function acceptVolunteerRequests($vid){
+    public function acceptVolunteerRequests($vid)
+    {
        $status =  $this->admin_model->acceptVolunteerRequests($vid);
        return $status;
     }// returning status to acknowlege the user
 
-    public function rejectVolunteerRequests($vid){
+    public function rejectVolunteerRequests($vid)
+    {
         $status= $this->admin_model->rejectVolunteerRequests($vid);
     }// returning status to acknowlege the user
 
-    public function Mail_to_volunteers_accpeted(){
+    public function Mail_to_volunteers_accpeted()
+    {
 
         $this->load->model("helpers/mail_helper");
 		
@@ -106,7 +121,8 @@ class Admin extends CI_controller
     
 
 
-    public function Mail_to_volunteers_rejected(){
+    public function Mail_to_volunteers_rejected()
+    {
 
         $this->load->model("helpers/mail_helper");
 		
@@ -126,19 +142,21 @@ class Admin extends CI_controller
 
     }
 
-    public function getVolunteersAssignedForEvent($eve_id){
+    public function getVolunteersAssignedForEvent($eve_id)
+    {
         $volunteer_for_event = $this->admin_model->getVolunteersAssignedForEvent();
         $page_data['volunteer_for_event'] =  $volunteer_for_event;
     }
 
-    public function sendUpdateEventDetailsMail(){
+    public function sendUpdateEventDetailsMail()
+    {
         $this->load->model("helpers/mail_helper");
 		
 		$email_page = 'email_templates/UpdatedEventDetails';
 		
 		
 		$mail_data = array(
-            'UpdatedFields' =>$this->admin_model->get_updated_event_details();
+           'UpdatedFields' =>$this->admin_model->get_updated_event_details(),
 			'to' => $this->input->post('email'),
 			'subject' => 'Updated the event schedule',
 			'message_template' => $email_page,
@@ -151,18 +169,9 @@ class Admin extends CI_controller
     }
     
 
-    public getAllEventDetails(){
+    public function getAllEventDetails(){
         $AllEvents = $this->admin_model->getAllEventDetails();
         $page_data['AllEvents']=$AllEvents;
     }
-    
-    /**
-     * Following functions are added by : Manish  Kumar Sadhu
-     * createEvent
-     * updateEvent
-     * acceptVolunteerRequests
-     * rejectVolunteerRequests
-     * Mail_to_volunteers_accpeted
-     * Mail_to_volunteers_rejected
-     */
 }
+?>
