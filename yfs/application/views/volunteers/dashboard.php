@@ -6,7 +6,6 @@
 body {
     font-family: "Lato", sans-serif;
 }
-
 .sidenav {
     height: 100%;
     width: 0;
@@ -19,7 +18,6 @@ body {
     transition: 0.5s;
     padding-top: 60px;
 }
-
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -28,11 +26,9 @@ body {
     display:flex;
     transition: 0.3s;
 }
-
 .sidenav a:hover {
     color: #f1f1f1;
 }
-
 .sidenav .closebtn {
     position: absolute;
     top: 10;
@@ -40,7 +36,6 @@ body {
     font-size: 36px;
     margin-left: 50px;
 }
-
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -54,6 +49,7 @@ body {
   <a href="http://localhost/team-6/yfs/volunteer/">Home</a>
   <a href="http://localhost/team-6/yfs/volunteer/updateprofile">Update Preference</a>
   <a href="http://localhost/team-6/yfs/volunteer/checkins">CheckIn</a>
+  <a href="http://localhost/team-6/yfs/additional/volunteer_dashboard.php">Contribution</a>
   
 </div>
 
@@ -63,11 +59,9 @@ body {
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
 }
-
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
-
 function registered(k)
 {
     document.location.href="http://localhost/team-6/yfs/volunteer/updateTemp/"+k;
@@ -101,7 +95,6 @@ function registered(k)
 <script>
 var myIndex = 0;
 carousel();
-
 function carousel() {
     var i;
     var x = document.getElementsByClassName("mySlides");
