@@ -116,9 +116,9 @@ class Auth extends CI_controller
 					'volunteer_id' => $user_data['volunteer_id'],
                     'Gender' => $user_data['gender'],
 					'phone' => $user_data['phone_no'],
-					'firstName' => $user_data['FirstName'],
-					'lastName' => $user_data['LastName'],
-					'email' => $user_data['EmailID'],
+					'firstName' => $user_data['first_name'],
+					'lastName' => $user_data['last_name'],
+					'email' => $user_data['email'],
                     'is_logged_in' => true
 				);
 				

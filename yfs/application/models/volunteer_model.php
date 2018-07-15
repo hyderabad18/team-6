@@ -76,7 +76,8 @@ class volunteer_model extends CI_Model
 
     public function getevents()
     {
-        $query=$this->db->query("select event_name from event where start_date>'".date('Y-m-d')."'");
+        // print_r("select event_id,event_name,loc_name from event where start_date>'".date('Y-m-d')."' and event_id not in (select event_id from temp_event where volunteer_id=".$this->session->userdata('volunteer_id').');');
+        $query=$this->db->query("select event_id,event_name,loc_name from event where start_date>'".date('Y-m-d')."' and event_id not in (select event_id from temp_event where volunteer_id=".$this->session->userdata('volunteer_id').');');
         // print_r($query->result_array());
         return $query->result_array();
     }
@@ -108,5 +109,12 @@ class volunteer_model extends CI_Model
             //redirect('volunteer');
              echo "success";
         }
+    }
+    public function update_temp($event)
+    {
+        // print_r("insert into temp_event(volunteer_id,event_id) values('".$this->session->userdata('email')."',".$event."');");
+        $query=$this->db->query("insert into temp_event(volunteer_id,event_id) values(".$this->session->userdata('volunteer_id').",".$event.");");
+        // print_r($query);
+        // return json_encode($query);
     }
 }

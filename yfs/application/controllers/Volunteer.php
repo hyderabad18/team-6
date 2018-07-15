@@ -29,6 +29,13 @@ class Volunteer extends CI_Controller
         // $this->load->model('volunteer_model');
         $this->volunteer_model->update_data();
     }
+    public function updateTemp($event_temp)
+    {
+        $event_name=$this->input->post('event_name');
+        $this->load->model('volunteer_model');
+        $this->volunteer_model->update_temp($event_temp);
+        redirect('volunteer');
+    }
 }
 
 

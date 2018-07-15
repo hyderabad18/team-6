@@ -56,7 +56,7 @@ body {
   
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
 <script>
 function openNav() {
@@ -66,6 +66,11 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
+
+function registered(k)
+{
+    document.location.href="http://localhost/team-6/yfs/volunteer/updateTemp/"+k;
+}
 </script>
      
 	 
@@ -74,14 +79,18 @@ function closeNav() {
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th></th>
+        <th>Name of Event</th>
+        <th>Location</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+    <tr>
       <?php foreach($eve as $m):?>
-    <tr><td> <?php echo $m['event_name']; ?></td></tr>
+    <tr><td> <?php echo $m['event_name']; ?></td>
+    <td> <?php echo $m['loc_name']; ?></td>
+    <td><button id="<?php echo $m['event_id'];?>" onclick="registered(this.id)" class="btn btn-primary pull-center" >Request</button>
+    </td>
+    </tr>
     <?php endforeach; ?>
       
     </tbody>
