@@ -51,8 +51,9 @@ body {
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="createevent.php">Update Preference</a>
-  <a href="viewevents.php">CheckIn</a>
+  <a href="http://localhost/team-6/yfs/volunteer/">Home</a>
+  <a href="http://localhost/team-6/yfs/volunteer/updateprofile">Update Preference</a>
+  <a href="http://localhost/team-6/yfs/volunteer/checkins">CheckIn</a>
   
 </div>
 
