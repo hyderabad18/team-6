@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<a href="http://localhost:8899/team-6/yfs/Admin" class="btn btn-info" role="button">Home</a><br><br>
+<a href="http://localhost/team-6/yfs/Admin" class="btn btn-info" role="button">Home</a><br><br>
 
 <div class="container">
   <h2>Create Event</h2>
