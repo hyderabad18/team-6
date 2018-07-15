@@ -51,7 +51,7 @@ body {
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="update">Update Preference</a>
+  <a href="createevent.php">Update Preference</a>
   <a href="viewevents.php">CheckIn</a>
   
 </div>
@@ -69,13 +69,13 @@ function closeNav() {
 
 function registered(k)
 {
-    document.location.href="http://localhost/team-6/yfs/volunteer/updateTemp/"+k;
+    document.location.href="http://localhost/team-6/yfs/volunteer/update_check/"+k;
 }
 </script>
      
 	 
 <div class="container">
-  <h2>Events Nearby</h2>          
+  <h2>Check In</h2>          
   <table class="table">
     <thead>
       <tr>
@@ -85,10 +85,10 @@ function registered(k)
     </thead>
     <tbody>
     <tr>
-      <?php foreach($eve as $m):?>
+    <?php foreach($eve as $m):?>
     <tr><td> <?php echo $m['event_name']; ?></td>
     <td> <?php echo $m['loc_name']; ?></td>
-    <td><button id="<?php echo $m['event_id'];?>" onclick="registered(this.id)" class="btn btn-primary pull-center" >Request</button>
+    <td><button id="<?php echo $m['event_id'];?>" onclick="registered(this.id)" class="btn btn-primary pull-center" >CheckIn</button>
     </td>
     </tr>
     <?php endforeach; ?>

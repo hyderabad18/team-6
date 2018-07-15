@@ -117,4 +117,24 @@ class volunteer_model extends CI_Model
         // print_r($query);
         // return json_encode($query);
     }
+
+    public function getCheckIn()
+    {
+        $q="select event_id,event_name,loc_name from event_enrollment natural join event where volunteer_id=".$this->session->userdata('volunteer_id')." and '".date('Y-m-d')."' between start_date and end_date;";
+        $query=$this->db->query($q);
+        return $query->result_array();
+    }
+
+    public function update_check($event)
+    {
+        $q="insert into v_checkin(volunteer_id,event_id,date,checkin) values(".$this->session->userdata('volunteer_id').",".$event.",'".date('Y-m-d')."','".date('Y-m-d h:i:s')."');";
+        $query=$this->db->query($q);
+    }
+
+
+
+
+
+
+
 }

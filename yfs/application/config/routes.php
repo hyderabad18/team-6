@@ -53,3 +53,4 @@ $route['default_controller'] = 'Homepage';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['volunteer/updateTemp/(:any)']='volunteer/updateTemp/$1';
+$route['volunteer/update_check/(:any)']='volunteer/update_check/$1';
